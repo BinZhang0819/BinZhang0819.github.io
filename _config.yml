@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 慢時光
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
+author: zhang bin
 language: zh-CN
 timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: binzhang0819.github.io
+url: ben-zhangbin.cn
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
