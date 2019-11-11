@@ -9,6 +9,10 @@ branches:
 script:
   - hexo generate # generate static files
 deploy:
-  type: git
-  repo: https://github.com/BinZhang0819/BinZhang0819.github.io
-  branch: gh-pages
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  keep-history: true
+  on:
+    branch: gh-pages
+  local-dir: public
