@@ -165,7 +165,7 @@
 <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="jquery的插件机制"><a href="#jquery的插件机制" class="headerlink" title="jquery的插件机制"></a>jquery的插件机制</h3><p>为了方便用户创建插件，jquery提供了jQuery.extend()和jQuery.fn.extend()方法。</p>
 <p>看下官方对jQuery.extend()的解释：</p>
 <p>描述: 将两个或更多对象的内容合并到第一个对象。</p>
-<p><a href="https://gitalk.github.io/" target="_blank" rel="noopener"><img src="/img/jq_extend_1.png" srcset="undefined" alt=""></a></p>
+<p><a href="https://ben-zhangbin.cn/" target="_blank" rel="noopener"><img src="/img/jq_extend_1.png" srcset="undefined" alt=""></a></p>
 <p>解释：当我们提供两个或多个对象给$.extend()，对象的所有属性都添加到目标对象（target参数）。</p>
 <p>需要特别注意的一点是：extend方法会改变原对象，所以通常情况下，如果我们想保留原对象，我们可以通过传递一个空对象作为目标对象：</p>
 <p>var object = $.extend({}, object1, object2);</p>
@@ -238,6 +238,37 @@
 <!-- Comments -->
 <div class="col-lg-7 mx-auto nopadding-md">
   <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === true;
+    var verify = 'false' === true;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "oQgxWTj1rw4vET5xhcfhslgP-gzGzoHsz",
+        app_key: "3l4kIHOdGn7dYVaGfoAESbab",
+        placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+        avatar: "nick,mail,link",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
     
   </div>
 </div>
