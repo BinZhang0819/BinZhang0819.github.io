@@ -15,7 +15,7 @@
   <meta name="description" content="My Notes">
   <meta name="author" content="Zhang Bin">
   <meta name="keywords" content="">
-  <title>慢時光</title>
+  <title>標籤 - 工具 ~ 慢時光</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -36,7 +36,7 @@
 
 
 <body>
-  <header style="height: 100vh;">
+  <header style="height: 80vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -96,7 +96,7 @@
 </nav>
 
     <div class="view intro-2" id="background"
-         style="background: url('/img/post-home-111201.jpg')no-repeat center center;
+         style="background: url('/img/post-tags-111201.jpg')no-repeat center center;
            background-size: cover;
            background-attachment: fixed;">
       <div class="full-bg-img">
@@ -109,10 +109,6 @@
             
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
-            </div>
           
         </div>
       </div>
@@ -129,177 +125,20 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-
-  <div class="row mb-4 mx-auto">
+<div class="list-group">
+  <p class="h4">共计 1 篇文章</p>
+  <hr>
+  
     
+      
+      <p class="h5">2019</p>
     
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2019/11/12/JQ%E6%8F%92%E4%BB%B6%E5%B0%81%E8%A3%85%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95/" target="_self">
-          <img src="/img/post-index-111203.jpg" srcset="undefined" alt="JQ插件封装通用方法" class="img-fluid rounded z-depth-3 index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/12/JQ%E6%8F%92%E4%BB%B6%E5%B0%81%E8%A3%85%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95/">
-        <p class="h4 index-header">JQ插件封装通用方法</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">前言JQ插件 在前端开发中还是很重要的，不仅能够增加代码的复用性，还能够降低项目的维护成本以下是自己对插件封装的理解，纯属一家之言~。
-正文jquery的插件机制为了方便用户创建插件，jquery提供了jQuery.extend()和jQuery.fn.extend()方法。
-看下官方对jQuery.extend()的解释：
-描述: 将两个或更多对象的内容合并到第一个对象。
-
-解释：当我们提供两个或多个对象给$.extend()，对象的所有属性都添加到目标对象（target参数）。
-需要特别注意的一点是：extend方法会改变原对象，所以通常情况下，如果我们想保留原对象，我们可以通过传递一个空对象作为目标对象：
-var object = $.extend({}, object1, object2);
-若设置了 deep 参数，对象和数组也会被合并进来，但是对象包裹的原始类型，比如String, Boolean, 和 Number是不会被合并进来的。
-看了官方的解释，大家应该能够理解，extend方法在用户自定义插件的时候通常是把用户的插件参数覆盖默认参数。
-再来看下官方对jQuery.</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2019/11/12/Git%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/" target="_self">
-          <img src="/img/post-index-111201.jpg" srcset="undefined" alt="Git指令整理" class="img-fluid rounded z-depth-3 index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/12/Git%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/">
-        <p class="h4 index-header">Git指令整理</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-随便整理的一些自用的Git指令
-
-GitHub创建仓库提示代码echo &quot;# 项目名&quot; &gt;&gt; README.md
-git init
-git add README.md
-git commit -m &quot;first commit&quot;
-git remote add origin git@github.com:··/项目名.git
-git push -u origin master若仓库存在直接push
-git remote add origin git@github.com:··/test.git
-git push -u origin master常用操作创建仓库（初始化）在当前指定目录下创建
-git init
-
-新建一个仓库目录
-git init [project-name]
-
-克隆一个远程项目
-git clone [url]添加文件到缓存区添加所有变化的文件
- git add .
-
-添加名称指定文件
-git add text.txt配置设置提交代码时的用户信息
-git config [--global] user.name &quot;[</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%B7%A5%E5%85%B7">工具</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2019/11/12/hello-world/" target="_self">
-          <img src="/img/post-index-111202.jpg" srcset="undefined" alt="Hello World" class="img-fluid rounded z-depth-3 index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/12/hello-world/">
-        <p class="h4 index-header">Hello World</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-
-More info: Writing
-Run server1$ hexo server
-
-More info: Server
-Generate static files1$ hexo generate
-
-More info: Generating
-Deploy to remote sites1$ hexo deploy
-
-More info: Deployment
+    <a href="/2019/11/12/Git%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Git指令整理</span>
+      <span style="float: right;">11-12</span>
+    </a>
+  
 </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%8A%80%E6%9C%AF">技术</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-
-
 
 
               </div>
@@ -421,7 +260,7 @@ More info: Deployment
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "My Notes&nbsp;",
+        "標籤 - 工具&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
