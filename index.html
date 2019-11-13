@@ -34,7 +34,10 @@
 
 </head>
 
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 <body>
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
@@ -262,16 +265,16 @@ git config [--global] user.name &quot;[</div>
         
         <div class="index-excerpt" >
           <div class="index-text mb-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
+Quick StartCreate a new post$ hexo new "My New Post"
 
 More info: Writing
-Run server1$ hexo server
+Run server$ hexo server
 
 More info: Server
-Generate static files1$ hexo generate
+Generate static files$ hexo generate
 
 More info: Generating
-Deploy to remote sites1$ hexo deploy
+Deploy to remote sites$ hexo deploy
 
 More info: Deployment
 </div>
@@ -409,7 +412,7 @@ More info: Deployment
   <script src="/lib/prettify/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
+      $('pre').addClass('prettyprint  ');
       prettyPrint();
     })
   </script>
@@ -483,5 +486,14 @@ More info: Deployment
 
 
 
+  <div id="music-wrap">
+    <meting-js
+    server="netease"
+    type="song"
+    autoplay="true"
+    loop="one"
+    id="1383927243">
+</meting-js>
+  </div>
 </body>
 </html>

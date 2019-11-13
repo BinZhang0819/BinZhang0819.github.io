@@ -34,7 +34,10 @@
 
 </head>
 
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 <body>
   <header style="height: 80vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
@@ -121,7 +124,7 @@
         <div class="py-5 z-depth-3" id="board">
           
             <div class="about-avatar">
-              <img src="/img/avatar.png"
+              <img src="/img/about-head.jpg"
                    class="img-fluid z-depth-1 rounded-circle"
                    alt="avatar">
             </div>
@@ -166,7 +169,20 @@
   
 </div>
 <div class="mt-5 markdown-body">
-  
+  <h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><center>
+    <font face="楷体" size=6 color=#4285f4>都可以</font>
+</center>
+<center>
+    <font face="楷体" size=6 color=#fbbc05>无所谓</font>
+</center>
+<center>
+    <font face="楷体" size=6 color=#34a853>差不多</font>
+</center>
+<center>
+    <img src="/img/about-111301.jpg" srcset="undefined"/>
+</center>
+
+
 </div>
 
               </div>
@@ -276,7 +292,7 @@
   <script src="/lib/prettify/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
+      $('pre').addClass('prettyprint  ');
       prettyPrint();
     })
   </script>
@@ -350,5 +366,14 @@
 
 
 
+  <div id="music-wrap">
+    <meting-js
+    server="netease"
+    type="song"
+    autoplay="true"
+    loop="one"
+    id="1383927243">
+</meting-js>
+  </div>
 </body>
 </html>
