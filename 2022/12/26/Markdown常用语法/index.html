@@ -21,7 +21,9 @@
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
 <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
 <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
 
 
   <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
@@ -32,7 +34,7 @@
   <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
 
 
-</head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
@@ -177,7 +179,7 @@
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
             <blockquote>
-<p>转自：<a href="https://www.cnblogs.com/miki-peng/p/12502985.html" target="_blank" rel="noopener">https://www.cnblogs.com/miki-peng/p/12502985.html</a></p>
+<p>转自：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/miki-peng/p/12502985.html">https://www.cnblogs.com/miki-peng/p/12502985.html</a></p>
 </blockquote>
 <h1 id="markdown-标题">Markdown 标题</h1>
 <p>Markdown 标题有两种格式。</p>
@@ -439,7 +441,7 @@ class CaseData:
 <p>Markdown 图片语法格式如下</p>
 <pre><code>![alt 属性文本](图片地址)
 
-<p><img src="%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80" srcset="undefined" alt="alt 属性文本" title="可选标题"><br></code></pre></p>
+<p><img src="/%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80" srcset="undefined" alt="alt 属性文本" title="可选标题"><br></code></pre></p>
 <ul>
 <li>开头一个感叹号 !</li>
 <li>接着一个方括号，里面放上图片的替代文字</li>
@@ -548,7 +550,7 @@ class CaseData:
 `   反引号
 *   星号
 _   下划线
-{}  花括号
+&#123;&#125;  花括号
 []  方括号
 ()  小括号
 #   井字号
@@ -560,7 +562,7 @@ _   下划线
 <h2 id="公式">公式</h2>
 <p>当你需要在编辑器中插入数学公式时，可以使用两个美元符<code>$$</code>包裹<strong>TeX</strong>或<strong>LaTeX</strong>格式的数学公式来实现。提交后，问答和文章页会根据需要加载 Mathjax 对数学公式进行渲染。如果是在博客园用公式，需要到自己的博客园：管理》选项，勾选“启用数学公式支持”；如果是在typora软件：文件》偏好设置》markdown》扩展语法，勾选“内联公式”；其他的md编辑器应该也是差不多需要去设置渲染公式，不然显示不出来。</p>
 <p>公式的用法太多了，需要的可以自行去研究，这个挺全的<a href="https://www.zybuluo.com/codeep/note/163962#mjx-eqn-eqsample" target="_blank" rel="noopener">https://www.zybuluo.com/codeep/note/163962#mjx-eqn-eqsample</a>，下面列举一个比较简单的：</p>
-<pre><code>$$ J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha} \text {，独立公式示例} $$
+<pre><code>$$ J_\alpha(x) = \sum_&#123;m=0&#125;^\infty \frac&#123;(-1)^m&#125;&#123;m! \Gamma (m + \alpha + 1)&#125; &#123;\left(&#123; \frac&#123;x&#125;&#123;2&#125; &#125;\right)&#125;^&#123;2m + \alpha&#125; \text &#123;，独立公式示例&#125; $$
 </code></pre>
 <p>输出结果为：</p>
 <p></p><div class="math display">\[J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha} \text {，独立公式示例} 
@@ -2122,7 +2124,7 @@ size为6：&lt;font size="6"&gt;size为6&lt;/font&gt;
             
             </p>
             
-              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
             
           </div>
         </div>
@@ -2172,7 +2174,7 @@ size为6：&lt;font size="6"&gt;size为6&lt;/font&gt;
       oldLoad && oldLoad();
     };
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 
