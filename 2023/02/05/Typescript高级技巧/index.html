@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="My Notes">
+  <meta name="author" content="Zhang Bin">
+  <meta name="keywords" content="">
+  <title>Typescript 高级技巧 ~ 慢時光</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  #music-wrap {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+  }
+  .aplayer {
+    box-shadow: 0 0 30px 0 rgba(255,255,255,.1), 0 0 30px 0 rgba(255,255,255,.2)!important;
+  }
+
+</style>
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>慢時光</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">慢時光</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">小記</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">類別</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">標籤</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">關於</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/ts/title.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fa fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期日, 二月 5日 2023, 11:36 中午
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    1.8k 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      8 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <blockquote>
+<p>转自：<a target="_blank" rel="noopener" href="https://shanyue.tech/post/ts-tips.html#_01-keyof">https://shanyue.tech/post/ts-tips.html#_01-keyof</a></p>
+</blockquote>
+<h1 id="typescript-高级技巧"><a href="#typescript-高级技巧" class="headerlink" title="typescript 高级技巧"></a>typescript 高级技巧</h1><p>用了一段时间的 <code>typescript</code> 之后，深感中大型项目中 <code>typescript</code> 的必要性，它能够提前在编译期避免许多 bug，如很恶心的拼写问题。而越来越多的 <code>package</code> 也开始使用 <code>ts</code>，学习 <code>ts</code> 已是势在必行。</p>
+<p>以下是我在工作中总结到的比较实用的 <code>typescript</code> 技巧。</p>
+<span id="more"></span>
+
+<h2 id="01-keyof"><a href="#01-keyof" class="headerlink" title="01 keyof"></a>01 keyof</h2><p><code>keyof</code> 与 <code>Object.keys</code> 略有相似，只不过 <code>keyof</code> 取 <code>interface</code> 的键。</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">  <span class="attr">x</span>: <span class="built_in">number</span>;</span><br><span class="line">  <span class="attr">y</span>: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 相当于:</span></span><br><span class="line"><span class="comment">// type keys = &quot;x&quot; | &quot;y&quot;</span></span><br><span class="line"><span class="keyword">type</span> keys = keyof <span class="title class_">Point</span>;</span><br></pre></td></tr></table></figure>
+
+<p>假设有一个 <code>object</code> 如下所示，我们需要使用 <code>typescript</code> 实现一个 <code>get</code> 函数来获取它的属性值</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> data = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">3</span>,</span><br><span class="line">  <span class="attr">hello</span>: <span class="string">&#x27;world&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">get</span>(<span class="params">o: <span class="built_in">object</span>, name: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> o[name]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们刚开始可能会这么写，不过它有很多缺点</p>
+<ol>
+<li>无法确认返回类型：这将损失 ts 最大的类型校验功能</li>
+<li>无法对 key 做约束：可能会犯拼写错误的问题</li>
+</ol>
+<p>这时可以使用 <code>keyof</code> 来加强 <code>get</code> 函数的类型功能，有兴趣的同学可以看看 <code>_.get</code> 的 type 标记以及实现</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> get&lt;T <span class="keyword">extends</span> <span class="built_in">object</span>, K <span class="keyword">extends</span> keyof T&gt;(<span class="attr">o</span>: T, <span class="attr">name</span>: K): T[K] &#123;</span><br><span class="line">  <span class="keyword">return</span> o[name]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于 <code>keyof</code>，另一个好用的小技巧是 <code>keyof any</code>，请看以下示例</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下两者等效，但适用 keyof 更加简短</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">PropertyName</span> = keyof <span class="built_in">any</span>;</span><br><span class="line"><span class="keyword">type</span> <span class="title class_">PropertyName</span> = <span class="built_in">string</span> | <span class="built_in">number</span> | <span class="built_in">symbol</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="02-Required-amp-Partial-amp-Pick"><a href="#02-Required-amp-Partial-amp-Pick" class="headerlink" title="02 Required &amp; Partial &amp; Pick"></a>02 Required &amp; Partial &amp; Pick</h2><p>既然了解了 <code>keyof</code>，可以使用它对属性做一些扩展， 如实现 <code>Partial</code> 和 <code>Pick</code>，<code>Pick</code> 一般用在 <code>_.pick</code> 中</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="title class_">Partial</span>&lt;T&gt; = &#123;</span><br><span class="line">  [P <span class="keyword">in</span> keyof T]?: T[P];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Required</span>&lt;T&gt; = &#123;</span><br><span class="line">  [P <span class="keyword">in</span> keyof T]-?: T[P];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Pick</span>&lt;T, K <span class="keyword">extends</span> keyof T&gt; = &#123;</span><br><span class="line">  [P <span class="keyword">in</span> K]: T[P];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">User</span> &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="built_in">number</span>;</span><br><span class="line">  <span class="attr">age</span>: <span class="built_in">number</span>;</span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 相当于: type PartialUser = &#123; id?: number; age?: number; name?: string; &#125;</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">PartialUser</span> = <span class="title class_">Partial</span>&lt;<span class="title class_">User</span>&gt;</span><br><span class="line"><span class="comment">// 相当于: type PickUser = &#123; id: number; age: number; &#125;</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">PickUser</span> = <span class="title class_">Pick</span>&lt;<span class="title class_">User</span>, <span class="string">&#x27;id&#x27;</span> | <span class="string">&#x27;age&#x27;</span>&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>Pick</code>、<code>Required</code>、<code>Partial</code> 这几个类型已内置在 Typescript 中原生实现</p>
+</blockquote>
+<h2 id="03-Condition-Type"><a href="#03-Condition-Type" class="headerlink" title="03 Condition Type"></a>03 Condition Type</h2><p>类似于 js 中的 <code>?:</code> 运算符，可以使用它扩展一些基本类型</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> isTrue&lt;T&gt; = T <span class="keyword">extends</span> <span class="literal">true</span> ? <span class="literal">true</span> : <span class="literal">false</span></span><br><span class="line"><span class="comment">// 相当于 type t = false</span></span><br><span class="line"><span class="keyword">type</span> t = isTrue&lt;<span class="built_in">number</span>&gt;</span><br><span class="line"><span class="comment">// 相当于 type t = false</span></span><br><span class="line"><span class="keyword">type</span> t = isTrue&lt;<span class="literal">false</span>&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="04-never-amp-Exclude-amp-Extract-amp-Omit"><a href="#04-never-amp-Exclude-amp-Extract-amp-Omit" class="headerlink" title="04 never &amp; Exclude &amp; Extract &amp; Omit"></a>04 never &amp; Exclude &amp; Extract &amp; Omit</h2><p>官方文档对 <code>never</code> 的描述如下</p>
+<blockquote>
+<p>the never type represents the type of values that never occur.<br>结合 <code>never</code> 与 <code>conditional type</code> 可以推出很多有意思而且实用的类型，比如 <code>Exclude</code> 与 <code>Extract</code></p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="title class_">Exclude</span>&lt;T, U&gt; = T <span class="keyword">extends</span> U ? <span class="built_in">never</span> : T;</span><br><span class="line"><span class="comment">// 相当于: type A = &#x27;a&#x27;</span></span><br><span class="line"><span class="keyword">type</span> A = <span class="title class_">Exclude</span>&lt;<span class="string">&#x27;x&#x27;</span> | <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;x&#x27;</span>&gt;</span><br><span class="line"><span class="keyword">type</span> A = <span class="title class_">Exclude</span>&lt;<span class="string">&#x27;x&#x27;</span> | <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;x&#x27;</span> | <span class="string">&#x27;y&#x27;</span> | <span class="string">&#x27;z&#x27;</span>&gt;</span><br><span class="line"><span class="comment">// 与 Exclude 实现刚好相反，Exclude 取差集，而 Extract 取交集</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Extract</span>&lt;T, U&gt; = T <span class="keyword">extends</span> U ? T : <span class="built_in">never</span>;</span><br><span class="line"><span class="comment">// 相当于: type A = &#x27;x&#x27;</span></span><br><span class="line"><span class="keyword">type</span> A = <span class="title class_">Exclude</span>&lt;<span class="string">&#x27;x&#x27;</span> | <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;x&#x27;</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>结合 <code>Exclude</code> 推出 <code>Omit</code> 的写法</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="title class_">Omit</span>&lt;T, K <span class="keyword">extends</span> keyof <span class="built_in">any</span>&gt; = <span class="title class_">Pick</span>&lt;T, <span class="title class_">Exclude</span>&lt;keyof T, K&gt;&gt;;</span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">User</span> &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="built_in">number</span>;</span><br><span class="line">  <span class="attr">age</span>: <span class="built_in">number</span>;</span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 相当于: type PickUser = &#123; age: number; name: string; &#125;</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">OmitUser</span> = <span class="title class_">Omit</span>&lt;<span class="title class_">User</span>, <span class="string">&quot;id&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>Exclude</code>、<code>Extract</code>、<code>Omit</code> 这几个类型已内置在 Typescript 中原生实现</p>
+</blockquote>
+<h2 id="05-typeof"><a href="#05-typeof" class="headerlink" title="05 typeof"></a>05 typeof</h2><p>顾名思义，<code>typeof</code> 代表取某个值的 type，可以从以下示例来展示他们的用法</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="attr">a</span>: <span class="built_in">number</span> = <span class="number">3</span></span><br><span class="line"><span class="comment">// 相当于: const b: number = 4</span></span><br><span class="line"><span class="keyword">const</span> <span class="attr">b</span>: <span class="keyword">typeof</span> a = <span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<p>在一个典型的服务端项目中，我们经常需要把一些工具塞到 <code>context</code> 中，如config，logger，db models, utils 等，此时就使用到 <code>typeof</code>。</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> logger <span class="keyword">from</span> <span class="string">&#x27;./logger&#x27;</span></span><br><span class="line"><span class="keyword">import</span> utils <span class="keyword">from</span> <span class="string">&#x27;./utils&#x27;</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Context</span> <span class="keyword">extends</span> <span class="title class_">KoaContect</span> &#123;</span><br><span class="line">  <span class="attr">logger</span>: <span class="keyword">typeof</span> logger,</span><br><span class="line">  <span class="attr">utils</span>: <span class="keyword">typeof</span> utils</span><br><span class="line">&#125;</span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">ctx: Context</span>) =&gt;</span> &#123;</span><br><span class="line">  ctx.<span class="property">logger</span>.<span class="title function_">info</span>(<span class="string">&#x27;hello, world&#x27;</span>)</span><br><span class="line">  <span class="comment">// 会报错，因为 logger.ts 中没有暴露此方法，可以最大限度的避免拼写错误</span></span><br><span class="line">  ctx.<span class="property">loger</span>.<span class="title function_">info</span>(<span class="string">&#x27;hello, world&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="06-is"><a href="#06-is" class="headerlink" title="06 is"></a>06 is</h2><p>在此之前，先看一个 <code>koa</code> 的错误处理流程，以下是对 <code>error</code> 进行集中处理，并且标识 <code>code</code> 的过程</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(<span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">next</span>();</span><br><span class="line">  &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">    <span class="keyword">let</span> code = <span class="string">&#x27;BAD_REQUEST&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> (err.<span class="property">isAxiosError</span>) &#123;</span><br><span class="line">      code = <span class="string">`Axios-<span class="subst">$&#123;err.code&#125;</span>`</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (err <span class="keyword">instanceof</span> <span class="title class_">Sequelize</span>.<span class="property">BaseError</span>) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    ctx.<span class="property">body</span> = &#123;</span><br><span class="line">      code</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>err.code</code> 处，会编译出错，提示 <code>Property &#39;code&#39; does not exist on type &#39;Error&#39;.ts(2339)</code>。</p>
+<p>此时可以使用 <code>as AxiosError</code> 或者 <code>as any</code> 来避免报错，不过强制类型转换也不够友好</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ((err <span class="keyword">as</span> <span class="title class_">AxiosError</span>).<span class="property">isAxiosError</span>) &#123;</span><br><span class="line">  code = <span class="string">`Axios-<span class="subst">$&#123;(err <span class="keyword">as</span> AxiosError).code&#125;</span>`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此时可以使用 <code>is</code> 来判定值的类型</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isAxiosError</span> (<span class="attr">error</span>: <span class="built_in">any</span>): error is <span class="title class_">AxiosError</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> error.<span class="property">isAxiosError</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="title function_">isAxiosError</span>(err)) &#123;</span><br><span class="line">  code = <span class="string">`Axios-<span class="subst">$&#123;err.code&#125;</span>`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>GraphQL</code> 的源码中，有很多诸如此类的用法，用以标识类型</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">isType</span>(<span class="params"><span class="keyword">type</span>: <span class="built_in">any</span></span>): <span class="keyword">type</span> is <span class="title class_">GraphQLType</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">isScalarType</span>(<span class="params"><span class="keyword">type</span>: <span class="built_in">any</span></span>): <span class="keyword">type</span> is <span class="title class_">GraphQLScalarType</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">isObjectType</span>(<span class="params"><span class="keyword">type</span>: <span class="built_in">any</span></span>): <span class="keyword">type</span> is <span class="title class_">GraphQLObjectType</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">isInterfaceType</span>(<span class="params"><span class="keyword">type</span>: <span class="built_in">any</span></span>): <span class="keyword">type</span> is <span class="title class_">GraphQLInterfaceType</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="07-interface-amp-type"><a href="#07-interface-amp-type" class="headerlink" title="07 interface &amp; type"></a>07 interface &amp; type</h2><p><code>interface</code> 与 <code>type</code> 的区别是什么？可以参考以下 <code>stackoverflow</code> 的问题</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/37233735/typescript-interfaces-vs-types">https://stackoverflow.com/questions/37233735/typescript-interfaces-vs-types</a></p>
+<p>一般来说，<code>interface</code> 与 <code>type</code> 区别很小，比如以下两种写法差不多</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> A &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="built_in">number</span>;</span><br><span class="line">  <span class="attr">b</span>: <span class="built_in">number</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">type</span> B = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="built_in">number</span>;</span><br><span class="line">  <span class="attr">b</span>: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中 <code>interface</code> 可以如下合并多个，而 <code>type</code> 只能使用 <code>&amp;</code> 类进行连接。</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> A &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">interface</span> A &#123;</span><br><span class="line">    <span class="attr">b</span>: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="attr">a</span>: A = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">3</span>,</span><br><span class="line">    <span class="attr">b</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="08-Record-amp-Dictionary-amp-Many"><a href="#08-Record-amp-Dictionary-amp-Many" class="headerlink" title="08 Record &amp; Dictionary &amp; Many"></a>08 Record &amp; Dictionary &amp; Many</h2><p>这几个语法糖是从 <code>lodash</code> 的类型源码中学到的，平时工作中的使用频率还挺高。</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="title class_">Record</span>&lt;K <span class="keyword">extends</span> keyof <span class="built_in">any</span>, T&gt; = &#123;</span><br><span class="line">    [P <span class="keyword">in</span> K]: T;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Dictionary</span>&lt;T&gt; &#123;</span><br><span class="line">  [<span class="attr">index</span>: <span class="built_in">string</span>]: T;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">NumericDictionary</span>&lt;T&gt; &#123;</span><br><span class="line">  [<span class="attr">index</span>: <span class="built_in">number</span>]: T;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> <span class="attr">data</span>:<span class="title class_">Dictionary</span>&lt;<span class="built_in">number</span>&gt; = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">3</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实际上可用 <code>Record</code> 代替 <code>Dictionary</code> 与 <code>NumericDictionary</code></p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以下二者等价:</span></span><br><span class="line"><span class="keyword">type</span> A = <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">any</span>&gt;</span><br><span class="line"><span class="keyword">type</span> B = <span class="title class_">Dictionary</span>&lt;<span class="built_in">any</span>&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>Record</code> 已内置在 Typescript 中原生实现，在平时中仅使用 <code>Record</code> 即可</p>
+</blockquote>
+<h2 id="09-infer-amp-Return-Type-amp-Parameters-Type"><a href="#09-infer-amp-Return-Type-amp-Parameters-Type" class="headerlink" title="09 infer &amp; Return Type &amp; Parameters Type"></a>09 infer &amp; Return Type &amp; Parameters Type</h2><p>通过 <code>infer</code>，可类型推导出函数参数及返回值类型。<br>这里有一个有关协变与逆变的概念，看不懂可跳过。<br><em>函数的返回值类型是协变的，而参数类型是逆变的。</em>，见 <a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904066821128199">逆变与协变</a></p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">id</span>(<span class="params">x: <span class="built_in">number</span></span>): <span class="built_in">number</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> x</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> <span class="title class_">ReturnType</span>&lt;T <span class="keyword">extends</span> (...<span class="attr">args</span>: <span class="built_in">any</span>) =&gt; <span class="built_in">any</span>&gt; = T <span class="keyword">extends</span> (...<span class="attr">args</span>: <span class="built_in">any</span>) =&gt; infer R ? R : <span class="built_in">any</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Parameters</span>&lt;T <span class="keyword">extends</span> (...<span class="attr">args</span>: <span class="built_in">any</span>) =&gt; <span class="built_in">any</span>&gt; = T <span class="keyword">extends</span> (...<span class="attr">args</span>: infer P) =&gt; <span class="built_in">any</span> ? P : <span class="built_in">never</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>ReturnType 与 Parameters 已内置在 Typescript 中原生实现</p>
+</blockquote>
+<h2 id="10-使用-const-enum-维护常量表"><a href="#10-使用-const-enum-维护常量表" class="headerlink" title="10 使用 const enum 维护常量表"></a>10 使用 const enum 维护常量表</h2><p>相比使用字面量对象维护常量，<code>const enum</code> 可以提供更安全的类型检查</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用 object 维护常量</span></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">TODO_STATUS</span> &#123;</span><br><span class="line">  <span class="attr">TODO</span>: <span class="string">&#x27;TODO&#x27;</span>,</span><br><span class="line">  <span class="attr">DONE</span>: <span class="string">&#x27;DONE&#x27;</span>,</span><br><span class="line">  <span class="attr">DOING</span>: <span class="string">&#x27;DOING&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用 const enum 维护常量</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">enum</span> <span class="variable constant_">TODO_STATUS</span> &#123;</span><br><span class="line">  <span class="variable constant_">TODO</span> = <span class="string">&#x27;TODO&#x27;</span>,</span><br><span class="line">  <span class="variable constant_">DONE</span> = <span class="string">&#x27;DONE&#x27;</span>,</span><br><span class="line">  <span class="variable constant_">DOING</span> = <span class="string">&#x27;DOING&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">todos</span> (<span class="attr">status</span>: <span class="variable constant_">TODO_STATUS</span>): <span class="title class_">Todo</span>[];</span><br><span class="line"><span class="title function_">todos</span>(<span class="variable constant_">TODO_STATUS</span>.<span class="property">TODO</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="11-VS-Code-Tips-amp-Typescript-Command"><a href="#11-VS-Code-Tips-amp-Typescript-Command" class="headerlink" title="11 VS Code Tips &amp; Typescript Command"></a>11 VS Code Tips &amp; Typescript Command</h2><p>使用 VS Code 有时会出现，使用 <code>tsc</code> 编译时产生的问题与 <code>vs code</code> 提示的问题不一致</p>
+<p>找到项目右下角的 <code>Typescript</code> 字样，右侧显示它的版本号，可以点击选择 <code>Use Workspace Version</code>，它表示与项目依赖的 typescript 版本一直。</p>
+<p>或者编辑 <code>.vs-code/settings.json</code></p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;typescript.tsdk&quot;</span><span class="punctuation">:</span> <span class="string">&quot;node_modules/typescript/lib&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="12-Typescript-Roadmap"><a href="#12-Typescript-Roadmap" class="headerlink" title="12 Typescript Roadmap"></a>12 Typescript Roadmap</h2><p>最后一条也是最重要的一条，翻阅 <code>Roadmap</code>，了解 <code>ts</code> 的一些新的特性与 bug 修复情况。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Microsoft/TypeScript/wiki/Roadmap">Typescript Roadmap</a></p>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/%E5%B7%A5%E5%85%B7">工具</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === true;
+    var verify = 'false' === true;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "oQgxWTj1rw4vET5xhcfhslgP-gzGzoHsz",
+        app_key: "3l4kIHOdGn7dYVaGfoAESbab",
+        placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+        avatar: "nick,mail,link",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  ');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Typescript 高级技巧&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  <div id="music-wrap">
+    <meting-js
+    server="netease"
+    type="song"
+    autoplay="true"
+    loop="one"
+    id="1383927243">
+</meting-js>
+  </div>
+</body>
+</html>
