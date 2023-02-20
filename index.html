@@ -151,33 +151,41 @@
     
     
       <div class="col-12 col-md-4 m-auto">
-        <a href="/2023/02/17/SCP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" target="_self">
-          <img src="/img/post-index-111202.jpg" srcset="undefined" alt="SCP使用方法" class="img-fluid rounded z-depth-3 index-thumbnails">
+        <a href="/2023/02/20/%E9%9F%B3%E9%A2%91%E5%8F%AF%E8%A7%86%E5%8C%96/" target="_self">
+          <img src="/img/post-index-111202.jpg" srcset="undefined" alt="音频可视化" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
       </div>
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2023/02/17/SCP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
-        <p class="h4 index-header">SCP使用方法</p>
+      <a href="/2023/02/20/%E9%9F%B3%E9%A2%91%E5%8F%AF%E8%A7%86%E5%8C%96/">
+        <p class="h4 index-header">音频可视化</p>
         
         
           
         
         <div class="index-excerpt" >
           <div class="index-text mb-1">
-转自：https://www.clloz.com/programming/assorted/2019/04/09/mac-scp/
+  #audio {
+    width: 100%;
+    margin-top: 20px;
+  }
+  #audioCanvas {
+    border: 1px solid #CCC;
+    border-radius: 10px;
+    background: #F1F3F4;
+    box-shadow: 
+    rgba(47, 65, 84, 0.4) 0 0 5px, rgba(47, 65, 84, 0.3) 0 0 10px, rgba(47, 65, 84, 0.2) 0 0 15px, rgba(47, 65, 84, 0.1) 0 0 20px, rgba(47, 65, 84, 0.05) 0 0 25px;
+  }
 
-scp 的使用传输本地文件到服务器scp 文件名 用户名@服务器ip:目标路径scp /file-path/ root@server-ip:/file-path/
-传输本地文件夹到服务器scp -r 文件夹目录 用户名@服务器ip:目标路径scp -r /path/folder root@server-ip:/path/
-下载服务器文件到本地scp 用户名@服务器ip:文件路径 目标路径scp root@server-ip:&#x2F;file-path&#x2F; &#x2F;file-path&#x2F;
-下载服务器文件夹到本地scp -r 用户名@服务器ip:文件路径 目标路径scp -r root@server-ip:/path/folder /path/
-如果服务器指定了端口scp -P 端口号 文件路径 用户名@服务器ip:文件保存路径scp -P port /file/path root@server-ip:/path/</div>
+
+
+</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2023-02-17&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2023-02-20&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -199,42 +207,34 @@ scp 的使用传输本地文件到服务器scp 文件名 用户名@服务器ip:�
     
     
       <div class="col-12 col-md-4 m-auto">
-        <a href="/2023/02/05/Nginx%E6%9E%81%E7%AE%80%E6%95%99%E7%A8%8B/" target="_self">
-          <img src="/img/nginx/title.jpg" srcset="undefined" alt="Nginx极简教程" class="img-fluid rounded z-depth-3 index-thumbnails">
+        <a href="/2023/02/17/SCP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" target="_self">
+          <img src="/img/post-index-111202.jpg" srcset="undefined" alt="SCP使用方法" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
       </div>
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2023/02/05/Nginx%E6%9E%81%E7%AE%80%E6%95%99%E7%A8%8B/">
-        <p class="h4 index-header">Nginx极简教程</p>
+      <a href="/2023/02/17/SCP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
+        <p class="h4 index-header">SCP使用方法</p>
         
         
           
         
         <div class="index-excerpt" >
           <div class="index-text mb-1">
-转自：https://github.com/dunwu/nginx-tutorial
+转自：https://www.clloz.com/programming/assorted/2019/04/09/mac-scp/
 
-Nginx 极简教程
-本项目是一个 Nginx 极简教程，目的在于帮助新手快速入门 Nginx。
+scp 的使用传输本地文件到服务器12scp 文件名 用户名@服务器ip:目标路径scp /file-path/ root@server-ip:/file-path/
+传输本地文件夹到服务器12scp -r 文件夹目录 用户名@服务器ip:目标路径scp -r /path/folder root@server-ip:/path/
+下载服务器文件到本地12scp 用户名@服务器ip:文件路径 目标路径scp root@server-ip:/file-path/ /file-path/
 
-一、Nginx 简介什么是 Nginx?
-Nginx (engine x) 是一款轻量级的 Web 服务器 、反向代理服务器及电子邮件（IMAP&#x2F;POP3）代理服务器。
-
-什么是反向代理？
-反向代理（Reverse Proxy）方式是指以代理服务器来接受 internet 上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给 internet 上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。
-
-二、Nginx 入门
-详细安装方法请参考：Nginx 运维nginx 的使用比较简单，就是几条命令。
-
-常用到的命令如下：
-nginx -s stop       快速关闭Nginx，可能不保存相关信息，并迅速终止web服务。nginx -s quit       平稳关闭Nginx，保存相关信息，有安排的结束web服务。nginx -s reload </div>
+下载服务器文件夹到本地12scp -r 用户名@服务器ip:文件路径 目标路径scp -r root@server-ip:/path/folder /path/
+如果服务器指定了端口12scp -P 端口号 文件路径 用户名@服务器ip:文件保存路径scp -P port /file/path root@server-ip:/path/</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2023-02-05&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2023-02-17&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -314,6 +314,63 @@ ___粗斜体文本___
 粗斜体文本
 分隔线
 你可以在一行中用三个以上的星号、减号、底</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2023-02-05&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%B7%A5%E5%85%B7">工具</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2023/02/05/Nginx%E6%9E%81%E7%AE%80%E6%95%99%E7%A8%8B/" target="_self">
+          <img src="/img/nginx/title.jpg" srcset="undefined" alt="Nginx极简教程" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2023/02/05/Nginx%E6%9E%81%E7%AE%80%E6%95%99%E7%A8%8B/">
+        <p class="h4 index-header">Nginx极简教程</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+转自：https://github.com/dunwu/nginx-tutorial
+
+Nginx 极简教程
+本项目是一个 Nginx 极简教程，目的在于帮助新手快速入门 Nginx。
+
+一、Nginx 简介什么是 Nginx?
+Nginx (engine x) 是一款轻量级的 Web 服务器 、反向代理服务器及电子邮件（IMAP&#x2F;POP3）代理服务器。
+
+什么是反向代理？
+反向代理（Reverse Proxy）方式是指以代理服务器来接受 internet 上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给 internet 上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。
+
+二、Nginx 入门
+详细安装方法请参考：Nginx 运维nginx 的使用比较简单，就是几条命令。
+
+常用到的命令如下：
+12345678nginx -s stop       快速关闭Nginx，可能不保存相关信息，并迅速终止web服务。nginx -s quit       平稳关闭Nginx，保存相关信息，有安排的结束web服务。nginx -s</div>
         </div>
       </a>
 
@@ -568,16 +625,16 @@ git config [--global] user.name</div>
         
         <div class="index-excerpt" >
           <div class="index-text mb-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
+Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;
 
 More info: Writing
-Run server$ hexo server
+Run server1$ hexo server
 
 More info: Server
-Generate static files$ hexo generate
+Generate static files1$ hexo generate
 
 More info: Generating
-Deploy to remote sites$ hexo deploy
+Deploy to remote sites1$ hexo deploy
 
 More info: Deployment
 </div>
@@ -715,7 +772,7 @@ More info: Deployment
   <script src="/lib/prettify/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
-      $('pre').addClass('prettyprint  ');
+      $('pre').addClass('prettyprint  linenums');
       prettyPrint();
     })
   </script>
