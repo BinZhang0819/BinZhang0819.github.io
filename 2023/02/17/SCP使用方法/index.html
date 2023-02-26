@@ -181,12 +181,22 @@
             <blockquote>
 <p>转自：<a target="_blank" rel="noopener" href="https://www.clloz.com/programming/assorted/2019/04/09/mac-scp/">https://www.clloz.com/programming/assorted/2019/04/09/mac-scp/</a></p>
 </blockquote>
-<h1 id="scp-的使用"><a href="#scp-的使用" class="headerlink" title="scp 的使用"></a>scp 的使用</h1><h2 id="传输本地文件到服务器"><a href="#传输本地文件到服务器" class="headerlink" title="传输本地文件到服务器"></a>传输本地文件到服务器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp 文件名 用户名@服务器ip:目标路径</span><br><span class="line">scp /file-path/ root@server-ip:/file-path/</span><br></pre></td></tr></table></figure>
-<h2 id="传输本地文件夹到服务器"><a href="#传输本地文件夹到服务器" class="headerlink" title="传输本地文件夹到服务器"></a>传输本地文件夹到服务器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -r 文件夹目录 用户名@服务器ip:目标路径</span><br><span class="line">scp -r /path/folder root@server-ip:/path/</span><br></pre></td></tr></table></figure>
-<h2 id="下载服务器文件到本地"><a href="#下载服务器文件到本地" class="headerlink" title="下载服务器文件到本地"></a>下载服务器文件到本地</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp 用户名@服务器ip:文件路径 目标路径</span><br><span class="line">scp root@server-ip:/file-path/ /file-path/</span><br></pre></td></tr></table></figure>
+<h1 id="scp-的使用"><a href="#scp-的使用" class="headerlink" title="scp 的使用"></a>scp 的使用</h1><h2 id="传输本地文件到服务器"><a href="#传输本地文件到服务器" class="headerlink" title="传输本地文件到服务器"></a>传输本地文件到服务器</h2><pre><code class="bash">scp 文件名 用户名@服务器ip:目标路径
+scp /file-path/ root@server-ip:/file-path/
+</code></pre>
+<h2 id="传输本地文件夹到服务器"><a href="#传输本地文件夹到服务器" class="headerlink" title="传输本地文件夹到服务器"></a>传输本地文件夹到服务器</h2><pre><code class="bash">scp -r 文件夹目录 用户名@服务器ip:目标路径
+scp -r /path/folder root@server-ip:/path/
+</code></pre>
+<h2 id="下载服务器文件到本地"><a href="#下载服务器文件到本地" class="headerlink" title="下载服务器文件到本地"></a>下载服务器文件到本地</h2><pre><code>scp 用户名@服务器ip:文件路径 目标路径
+scp root@server-ip:/file-path/ /file-path/
+</code></pre>
+<h2 id="下载服务器文件夹到本地"><a href="#下载服务器文件夹到本地" class="headerlink" title="下载服务器文件夹到本地"></a>下载服务器文件夹到本地</h2><pre><code class="bash">scp -r 用户名@服务器ip:文件路径 目标路径
+scp -r root@server-ip:/path/folder /path/
+</code></pre>
+<h2 id="如果服务器指定了端口"><a href="#如果服务器指定了端口" class="headerlink" title="如果服务器指定了端口"></a>如果服务器指定了端口</h2><pre><code class="bash">scp -P 端口号 文件路径 用户名@服务器ip:文件保存路径
+scp -P port /file/path root@server-ip:/path/
+</code></pre>
 
-<h2 id="下载服务器文件夹到本地"><a href="#下载服务器文件夹到本地" class="headerlink" title="下载服务器文件夹到本地"></a>下载服务器文件夹到本地</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -r 用户名@服务器ip:文件路径 目标路径</span><br><span class="line">scp -r root@server-ip:/path/folder /path/</span><br></pre></td></tr></table></figure>
-<h2 id="如果服务器指定了端口"><a href="#如果服务器指定了端口" class="headerlink" title="如果服务器指定了端口"></a>如果服务器指定了端口</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -P 端口号 文件路径 用户名@服务器ip:文件保存路径</span><br><span class="line">scp -P port /file/path root@server-ip:/path/</span><br></pre></td></tr></table></figure>
             <hr>
           </div>
           <br>
@@ -376,7 +386,7 @@
   <script src="/lib/prettify/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
+      $('pre').addClass('prettyprint  ');
       prettyPrint();
     })
   </script>

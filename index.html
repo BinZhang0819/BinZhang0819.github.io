@@ -151,6 +151,68 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2023/02/26/JS%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B/" target="_self">
+          <img src="/img/post-index-111202.jpg" srcset="undefined" alt="JS执行过程" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2023/02/26/JS%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B/">
+        <p class="h4 index-header">JS执行过程</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">1. 常见术语
+GO:全局对象
+AO：函数执行前产生的一个对象
+VO：变量对象，一般指向AO或GO
+ECS:上下文执行栈
+GECS:全局上下文执行栈
+FECS：函数上下文执行栈
+
+2.全局代码的执行过程这是一段全局代码
+var name=&quot;why&quot;;
+console.log(num1);
+var num1=20;
+var num2=30;
+var result=num1+num2
+console.log(result);
+
+
+在代码编译之前，会创建一个GlobalObject对象，这个对象包括一些全局的其他对象，并创建一个window属性指向这个对象本身。
+在全局代码编译的时候，遇到普通变量会放入到 GlobalObject 这个对象中，赋值为undefined
+全局代码执行时，会先创建一个Global Execution Stack 全局执行栈，里面包括两个部分
+Variable Object:在全局执行栈中，这个对象是指向的GlobalObject执行代码执行的代码，遇到变量要取值时，会先从VO找对应的值，从上往下依次执行
+第二行输出时，要取num1的值，去VO</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2023-02-26&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E7%9F%A5%E8%AF%86">知识</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2023/02/20/%E9%9F%B3%E9%A2%91%E5%8F%AF%E8%A7%86%E5%8C%96/" target="_self">
           <img src="/img/post-index-111202.jpg" srcset="undefined" alt="音频可视化" class="img-fluid rounded z-depth-3 index-thumbnails">
         </a>
@@ -223,12 +285,22 @@
           <div class="index-text mb-1">
 转自：https://www.clloz.com/programming/assorted/2019/04/09/mac-scp/
 
-scp 的使用传输本地文件到服务器12scp 文件名 用户名@服务器ip:目标路径scp /file-path/ root@server-ip:/file-path/
-传输本地文件夹到服务器12scp -r 文件夹目录 用户名@服务器ip:目标路径scp -r /path/folder root@server-ip:/path/
-下载服务器文件到本地12scp 用户名@服务器ip:文件路径 目标路径scp root@server-ip:/file-path/ /file-path/
+scp 的使用传输本地文件到服务器scp 文件名 用户名@服务器ip:目标路径
+scp /file-path/ root@server-ip:/file-path/
 
-下载服务器文件夹到本地12scp -r 用户名@服务器ip:文件路径 目标路径scp -r root@server-ip:/path/folder /path/
-如果服务器指定了端口12scp -P 端口号 文件路径 用户名@服务器ip:文件保存路径scp -P port /file/path root@server-ip:/path/</div>
+传输本地文件夹到服务器scp -r 文件夹目录 用户名@服务器ip:目标路径
+scp -r /path/folder root@server-ip:/path/
+
+下载服务器文件到本地scp 用户名@服务器ip:文件路径 目标路径
+scp root@server-ip:/file-path/ /file-path/
+
+下载服务器文件夹到本地scp -r 用户名@服务器ip:文件路径 目标路径
+scp -r root@server-ip:/path/folder /path/
+
+如果服务器指定了端口scp -P 端口号 文件路径 用户名@服务器ip:文件保存路径
+scp -P port /file/path root@server-ip:/path/
+
+</div>
         </div>
       </a>
 
@@ -285,7 +357,9 @@ Nginx (engine x) 是一款轻量级的 Web 服务器 、反向代理服务器及
 详细安装方法请参考：Nginx 运维nginx 的使用比较简单，就是几条命令。
 
 常用到的命令如下：
-12345678nginx -s stop       快速关闭Nginx，可能不保存相关信息，并迅速终止web服务。nginx -s quit       平稳关闭Nginx，保存相关信息，有安排的结束web服务。nginx -s</div>
+nginx -s stop       快速关闭Nginx，可能不保存相关信息，并迅速终止web服务。
+nginx -s quit       平稳关闭Nginx，保存相关信息，有安排的结束web服务。
+nginx -s reloa</div>
         </div>
       </a>
 
@@ -303,6 +377,52 @@ Nginx (engine x) 是一款轻量级的 Web 服务器 、反向代理服务器及
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/%E5%B7%A5%E5%85%B7">工具</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2023/02/05/Typescript%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/" target="_self">
+          <img src="/img/ts/title.png" srcset="undefined" alt="Typescript 高级技巧" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2023/02/05/Typescript%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/">
+        <p class="h4 index-header">Typescript 高级技巧</p>
+        
+        
+          
+          
+        
+        <div class="index-excerpt" style="max-height: none;">
+          <div class="index-text mb-1">
+转自：https://shanyue.tech/post/ts-tips.html#_01-keyof
+
+typescript 高级技巧用了一段时间的 typescript 之后，深感中大型项目中 typescript 的必要性，它能够提前在编译期避免许多 bug，如很恶心的拼写问题。而越来越多的 package 也开始使用 ts，学习 ts 已是势在必行。
+以下是我在工作中总结到的比较实用的 typescript 技巧。...</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2023-02-05&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E7%9F%A5%E8%AF%86">知识</a>&nbsp;
           
         
       </div>
@@ -371,52 +491,6 @@ ___粗斜体文本___
 粗斜体文本
 分隔线
 你可以在一行中用三个以上的星号、减号、底</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2023-02-05&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%B7%A5%E5%85%B7">工具</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2023/02/05/Typescript%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/" target="_self">
-          <img src="/img/ts/title.png" srcset="undefined" alt="Typescript 高级技巧" class="img-fluid rounded z-depth-3 index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2023/02/05/Typescript%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/">
-        <p class="h4 index-header">Typescript 高级技巧</p>
-        
-        
-          
-          
-        
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">
-转自：https://shanyue.tech/post/ts-tips.html#_01-keyof
-
-typescript 高级技巧用了一段时间的 typescript 之后，深感中大型项目中 typescript 的必要性，它能够提前在编译期避免许多 bug，如很恶心的拼写问题。而越来越多的 package 也开始使用 ts，学习 ts 已是势在必行。
-以下是我在工作中总结到的比较实用的 typescript 技巧。...</div>
         </div>
       </a>
 
@@ -625,16 +699,16 @@ git config [--global] user.name</div>
         
         <div class="index-excerpt" >
           <div class="index-text mb-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;
+Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
 
 More info: Writing
-Run server1$ hexo server
+Run server$ hexo server
 
 More info: Server
-Generate static files1$ hexo generate
+Generate static files$ hexo generate
 
 More info: Generating
-Deploy to remote sites1$ hexo deploy
+Deploy to remote sites$ hexo deploy
 
 More info: Deployment
 </div>
@@ -772,7 +846,7 @@ More info: Deployment
   <script src="/lib/prettify/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
+      $('pre').addClass('prettyprint  ');
       prettyPrint();
     })
   </script>
