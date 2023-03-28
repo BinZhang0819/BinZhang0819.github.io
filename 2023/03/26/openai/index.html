@@ -15,7 +15,7 @@
   <meta name="description" content="空有人間自由身，卻非人間自由人">
   <meta name="author" content="Zhang Bin">
   <meta name="keywords" content="開發 程序員 前端">
-  <title>小記 ~ 慢時光</title>
+  <title>Open AI ~ 慢時光</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -57,7 +57,7 @@
 
 </style>
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -117,7 +117,7 @@
 </nav>
 
     <div class="view intro-2" id="background"
-         style="background: url('https://ben-zhangbin.gitee.io/website/img/post-archives-111201.jpg')no-repeat center center;
+         style="background: url('https://ben-zhangbin.gitee.io/website/img/post-index-20210124.jpg')no-repeat center center;
            background-size: cover;
            background-attachment: fixed;">
       <div class="full-bg-img">
@@ -127,6 +127,41 @@
               
             </span>
 
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fa fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期日, 三月 26日 2023, 10:07 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    81 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      1 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
             
           </div>
 
@@ -138,71 +173,139 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 13 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2023</p>
-    
-    <a href="/2023/02/26/%E9%9A%8F%E8%AE%B020230226/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">随记20230226</span>
-      <span style="float: right;">02-26</span>
-    </a>
-  
-    
-    <a href="/2023/02/26/JS%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">JS执行过程</span>
-      <span style="float: right;">02-26</span>
-    </a>
-  
-    
-    <a href="/2023/02/20/%E9%9F%B3%E9%A2%91%E5%8F%AF%E8%A7%86%E5%8C%96/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">音频可视化</span>
-      <span style="float: right;">02-20</span>
-    </a>
-  
-    
-    <a href="/2023/02/17/SCP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">SCP使用方法</span>
-      <span style="float: right;">02-17</span>
-    </a>
-  
-    
-    <a href="/2023/02/05/Markdown%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Markdown常用语法</span>
-      <span style="float: right;">02-05</span>
-    </a>
-  
-    
-    <a href="/2023/02/05/Nginx%E6%9E%81%E7%AE%80%E6%95%99%E7%A8%8B/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Nginx极简教程</span>
-      <span style="float: right;">02-05</span>
-    </a>
-  
-    
-    <a href="/2023/02/05/Typescript%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Typescript 高级技巧</span>
-      <span style="float: right;">02-05</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h2 id="Open-AI测试"><a href="#Open-AI测试" class="headerlink" title="Open AI测试"></a>Open AI测试</h2><style>
+    #aiContent {
+        display: none;
+    }
+</style>
+<pre>
+<code class="language-javascript" id="aiContent"></code>
+</pre>
+<textarea id="textarea" rows="5" style="width: 100%;">Hello!</textarea>
+<p></p>
+<button onclick="handleSend()">发送</button>
+<script src="/js/axios.min.js"></script>
 
-              </div>
-            </div>
+<script>
+    handleSend()
+    function handleSend () {
+        const value = document.querySelector('#textarea').value
+        console.log(value)
+        if (!value) return
+        axios({
+            method: 'POST',
+            url: 'https://api.openai.com/v1/chat/completions',
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': 'Bearer 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'
+            },
+            data: {
+                "model": "gpt-3.5-turbo",
+                "messages": [{
+                    "role": "user",
+                    "content": value
+                }]
+            }
+        }).then(res => {
+            const content = res.data.choices[0].message.content
+            document.querySelector('#aiContent').style.display = 'block'
+            document.querySelector('#aiContent').innerHTML = content || 'Hello!'
+            console.log(content);
+        })
+    }
+
+</script>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/%E5%B7%A5%E5%85%B7">工具</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === true;
+    var verify = 'false' === true;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "oQgxWTj1rw4vET5xhcfhslgP-gzGzoHsz",
+        app_key: "3l4kIHOdGn7dYVaGfoAESbab",
+        placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+        avatar: "nick,mail,link",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -277,6 +380,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -317,7 +425,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "小記&nbsp;",
+        "Open AI&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
