@@ -142,7 +142,7 @@
         <div class="py-5 z-depth-3" id="board">
           
             <div class="about-avatar">
-              <img src="https://ben-zhangbin.gitee.io/website/img/about-head.jpg"
+              <img src="https://ben-zhangbin.gitee.io/website/img/post-index-20210124.jpg"
                    class="img-fluid z-depth-1 rounded-circle"
                    alt="avatar">
             </div>
@@ -187,18 +187,28 @@
   
 </div>
 <div class="mt-5 markdown-body">
-  <h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><center>
-    <font face="楷体" size=6 color=#4285f4>都可以</font>
-</center>
-<center>
-    <font face="楷体" size=6 color=#fbbc05>无所谓</font>
-</center>
-<center>
-    <font face="楷体" size=6 color=#34a853>差不多</font>
-</center>
-<center>
-    <img src="https://ben-zhangbin.gitee.io/website/img/about-111301.jpg" srcset="undefined"/>
-</center>
+  <h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><pre><code class="javascript">const aboutMe = {
+    name: &#39;Ben Zhang&#39;,
+    position: &#39;Web Front-End Developer&#39;,
+    website: &#39;https://ben-zhangbin.com&#39;
+}
+</code></pre>
+<h3 id="喜欢的话"><a href="#喜欢的话" class="headerlink" title="喜欢的话"></a>喜欢的话</h3><p><font face="楷体" size=4 color=#FFA500 id="likeFont">世上只有一种英雄主义，就是在认清了生活的真相后依然热爱生活💕</font></p>
+<style>
+    #likeFont {
+        transition: all 0.8s;
+    }
+</style>
+<script>
+    const element = document.querySelector('#likeFont')
+    const colorArray = ['#FFA500', '#20B2AA', '#000000']
+    let count = 2
+    setInterval(() => {
+        if (count < 0) count = 2
+        element.setAttribute('color', colorArray[count])
+        count-=1
+    }, 3000)
+</script>
 
 
 </div>
